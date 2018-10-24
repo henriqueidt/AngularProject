@@ -1,6 +1,6 @@
 <div class='location'>
-  <input type='text' id='city' v-model='city' placeholder='city'/>
-  <input type='text' id='state' v-model='state' placeholder='state'/>
-  <input type='text' v-model='cep' placeholder='cep'/>
-  <input type='button' value='Check CEP' v-on:click='checkCep()'/>
+  <input type='text' id='city' [(ngModel)]='city' placeholder='city' (keyup)='validateCity()'/>
+  <input type='text' id='state' [(ngModel)]='state' placeholder='state' (keyup)='validateState()'/>
+  <input type='text' [(ngModel)]='cep' placeholder='cep' (keyup)='validateCep()'/>
+  <input type='button' value='Check CEP' (click)='checkCep()'/>
 </div>

@@ -10,6 +10,7 @@ import { ProfessionalInfoComponent } from './professional-info/professional-info
 import { DescriptionComponent } from './description/description.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorsService } from './errors.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ErrorsService } from './errors.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ErrorsService],
   bootstrap: [AppComponent]

@@ -15,9 +15,9 @@ export class AppComponent {
 
   ngOnInit() { }
 
-  reciverFeedback(respostaFilho) {
-    const error = this.errorsService.addError(respostaFilho)
-    this.errors.push(error)
+  reciverFeedback(receivedResponse) {
+    this.errorsService.updateErrors(receivedResponse)
+
   }
 
 }

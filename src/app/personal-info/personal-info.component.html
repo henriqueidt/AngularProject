@@ -1,6 +1,7 @@
 <div class='personal'>
-  <input type='text' [(ngModel)]='name' placeholder='name' (keyup)="validateValue()"/>
-  <input type='text' [(ngModel)]='phone' placeholder='phone'/>
-  <input type='text' [(ngModel)]='email' placeholder='email'/>
-  <input type='text' [(ngModel)]='birth' placeholder='birth'/>
+  <input type='text' [(ngModel)]='name' placeholder='name' (keyup)='validateName()'/>
+  <input type='text' [(ngModel)]='phone' placeholder='phone' (keyup)='validatePhone()'/>
+  <input type='text' [(ngModel)]='email' placeholder='email' (keyup)='validateEmail()'/>
+  <input type='text' [(ngModel)]='birth' placeholder='birth' (keyup)='validateBirth()'/>
+  <app-cpf (cpf)='reciverFeedback($event)'></app-cpf>
 </div>

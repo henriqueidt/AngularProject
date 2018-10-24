@@ -1,9 +1,16 @@
 <div class='professional'>
   <ul>
-    <li *ngFor="let language of languages">
-      <!-- <input type='checkbox' checklist-model="language.name" checklist-value="language.id"> -->
-      <!-- <label>{{ language.name }}</label> -->
-      <!-- <h3 v-show='language.show'>{{ language.speciality }}</h3> -->
+    <li *ngFor="let language of languages; let i = index;">
+      <input type='checkbox' [(ngModel)]='languages[i].show'>
+      <label>{{ languages[i].name }}</label>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor='let tongue of tongues; let i = index;'>
+      <label for="tongues[i]">{{tongues[i].name}}</label>
+        <select class="form-control" id="tongue" required [(ngModel)]="tongues[i].level">
+          <option *ngFor="let level of levels" [value]="level">{{level}}</option>
+        </select>
     </li>
   </ul>
 </div>

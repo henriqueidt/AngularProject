@@ -13,9 +13,16 @@ export class ProfessionalInfoComponent implements OnInit {
     { id: 3, name: 'javascript', speciality: 'knows js', show: false}
   ];
 
+  tongues = [
+    { id: 1, name: 'Portuguese', speciality: 'fala portugues', level: 'none'},
+    { id: 2, name: 'English', speciality: 'speaks english', level: 'none'},
+    { id: 3, name: 'Espanhol', speciality: 'hablas espanhol', level: 'none'},
+  ];
+
+  levels = ['none','beginner', 'intermediate', 'advanced'];
+
   constructor() {  }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
