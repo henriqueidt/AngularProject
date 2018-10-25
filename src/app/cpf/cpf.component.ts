@@ -58,24 +58,24 @@ export class CpfComponent implements OnInit {
     }
     if (this.cpf.length > 14) {
       this.cpfResponse.emit({
-        text: "Cpf too long",
+        text: 'Cpf too long',
         correct: false
       })
     } else {
         this.cpfResponse.emit({
-          text: "Cpf too long",
+          text: 'Cpf too long',
           correct: true
         })
       }
     let cleanCpf = this.cpf.replace(/[\.-]/g, '');
     if (!this.testCPF(cleanCpf) || !cleanCpf.match(regexCpf)) {
       this.cpfResponse.emit({
-        text: "Invalid cpf",
+        text: 'Invalid cpf',
         correct: false
       })
     } else {
       this.cpfResponse.emit({
-        text: "Invalid cpf",
+        text: 'Invalid cpf',
         correct: true
       })
     }

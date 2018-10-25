@@ -1,15 +1,17 @@
 <div class='professional'>
   <ul>
-    <li *ngFor="let language of languages; let i = index;">
-      <input type='checkbox' [(ngModel)]='languages[i].show'>
-      <label>{{ languages[i].name }}</label>
+    <li *ngFor='let language of languages; let i = index;'>
+      <input type='checkbox' [(ngModel)]='language.show'>
+      <label>{{ language.name }}</label>
     </li>
   </ul>
+  <input type='text' [(ngModel)]='inputLanguage' placeholder='other language' value=''/>
+  <input type='button' value='Add' (click)='newLanguage()'/>
   <ul>
     <li *ngFor='let tongue of tongues; let i = index;'>
-      <label for="tongues[i]">{{tongues[i].name}}</label>
-        <select class="form-control" id="tongue" required [(ngModel)]="tongues[i].level">
-          <option *ngFor="let level of levels" [value]="level">{{level}}</option>
+      <label for='tongues[i]'>{{tongues[i].name}}</label>
+        <select class='form-control' id='tongue' required [(ngModel)]='tongues[i].level'>
+          <option *ngFor='let level of levels' [value]='level'>{{level}}</option>
         </select>
     </li>
   </ul>

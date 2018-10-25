@@ -38,12 +38,12 @@ export class LocationInfoComponent implements OnInit {
 
     if (this.city.length > 50 || !this.city.match(regexCityState)) {
       this.locationResponse.emit({
-        text: "Invalid city",
+        text: 'Invalid city',
         correct: false
       })
     } else {
       this.locationResponse.emit({
-        text: "Invalid city",
+        text: 'Invalid city',
         correct: true
       })
     }
@@ -54,12 +54,12 @@ export class LocationInfoComponent implements OnInit {
 
     if (this.state.length > 50 || !this.state.match(regexCityState)) {
       this.locationResponse.emit({
-        text: "Invalid state",
+        text: 'Invalid state',
         correct: false
       })
     } else {
       this.locationResponse.emit({
-        text: "Invalid state",
+        text: 'Invalid state',
         correct: true
       })
     }

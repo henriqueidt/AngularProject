@@ -21,12 +21,12 @@ export class DescriptionComponent implements OnInit {
     let flag = false;
     if (this.description.length > 200) {
       this.descriptionResponse.emit({
-        text: "Invalid description",
+        text: 'Invalid description',
         correct: false
       })
     } else {
       this.descriptionResponse.emit({
-        text: "Invalid description",
+        text: 'Invalid description',
         correct: true
       })
     }
@@ -35,14 +35,14 @@ export class DescriptionComponent implements OnInit {
       if (this.description.toLowerCase().indexOf(badWord.toString()) != -1){
           flag = true
           this.descriptionResponse.emit({
-            text: "Bad language",
+            text: 'Bad language',
             correct: false
           })
       }
     });
     if (flag == false) {
       this.descriptionResponse.emit({
-        text: "Bad language",
+        text: 'Bad language',
         correct: true
       })
     }
