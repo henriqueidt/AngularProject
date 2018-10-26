@@ -28,7 +28,7 @@ export class PersonalInfoComponent implements OnInit {
   validateName(): void {
     const regexName = /^[a-zA-Z ]+$/;
 
-    if (!regexName.test(this.name) || this.name.length > 50) {
+    if ((!regexName.test(this.name) || this.name.length > 50) && this.name.length > 0) {
       this.personalResponse.emit({
         text: "Invalid name",
         correct: false
@@ -42,16 +42,8 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   validatePhone(): void {
-    const regexPhone = /^([1-9]{1}[1-9]{1})\s([8-9]{1}[0-9]{3,4})[\/\-]([0-9]{4})$/;
     let phoneLen = this.phone.length;
-
-    if (phoneLen == 2) {
-      this.phone += ' ';
-    }
-    if (phoneLen === 8) {
-      this.phone += '-';
-    }
-    if (!this.phone.match(regexPhone) || this.phone.length > 13) {
+    if (( this.phone.length > 11) && this.phone.length > 0) {
       this.personalResponse.emit({
         text: "Invalid phone",
         correct: false
@@ -66,7 +58,7 @@ export class PersonalInfoComponent implements OnInit {
 
   validateEmail(): void {
     const regexEmail = /^([a-z0-9]{5,})[@]([a-z]{3,}[.])([a-z]{2,3})[.]{0,1}([a-z]{0,3})$/
-    if (!this.email.match(regexEmail)) {
+    if ((!this.email.match(regexEmail)) && this.email.length > 0){
       this.personalResponse.emit({
         text: "Invalid email",
         correct: false
@@ -80,13 +72,10 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   validateBirth(): void {
-    const regexBirth =/^([0-9]{2})[\/\-]([0-9]{2})[\/\-]([0-9]{4})$/;
+    const regexBirth =/^([0-9]{2})([0-9]{2})([0-9]{4})$/;
     let birthLen = this.birth.length;
-    let dateParts = this.birth.split('/');
-    if (birthLen === 2 || birthLen === 5) {
-      this.birth += '/';
-    }
-    if (!regexBirth.test(this.birth) || parseInt(dateParts[2]) > 2000) {
+    let year = this.birth.substr(birthLen - 4);
+    if ((!regexBirth.test(this.birth) || parseInt(year) > 2000) && birthLen > 0) {
       this.personalResponse.emit({
         text: "Invalid birth",
         correct: false

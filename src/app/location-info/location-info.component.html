@@ -1,6 +1,15 @@
 <div class='location'>
-  <input type='text' id='city' [(ngModel)]='city' placeholder='city' (keyup)='validateCity()'/>
-  <input type='text' id='state' [(ngModel)]='state' placeholder='state' (keyup)='validateState()'/>
-  <input type='text' [(ngModel)]='cep' placeholder='cep' (keyup)='validateCep()'/>
-  <input type='button' value='Check CEP' (click)='checkCep()'/>
+  <div class="input-field col s6">
+    <input type='text' id='city' [(ngModel)]='city' (keyup)='validateCity()'/>
+    <label for="city">City</label>
+  </div>
+  <div class="input-field col s6">
+    <input type='text' id='state' [(ngModel)]='state' (keyup)='validateState()'/>
+    <label for="state">State</label>
+  </div>
+  <div class="input-field col s6">
+    <input type='text' id='cep' [(ngModel)]='cep' (keyup)='validateCep()'/>
+    <label for="cep">Cep</label>
+  </div>
+  <a class="waves-effect waves-light btn-small" (click)='checkCep()'>Check CEP</a>
 </div>

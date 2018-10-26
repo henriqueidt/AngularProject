@@ -1,2 +1,4 @@
-
-<textarea  class='description' cols='60'  rows='10' [(ngModel)]='description' placeholder='description' (keyup)='validateDescription()'></textarea>
+<div class="input-field col s12">
+    <textarea id="textarea1" [(ngModel)]='description' (keyup)='validateDescription()' class="materialize-textarea"></textarea>
+    <label for="textarea1">Textarea</label>
+</div>

@@ -1,14 +1,19 @@
-<div id='container'>
+<div class='container'>
+  <h3 class="collection-header">New Client Form</h3>
   <app-personal-info (test)='reciverFeedback($event)'></app-personal-info>
   <app-location-info (location)='reciverFeedback($event)'></app-location-info>
   <app-professional-info></app-professional-info>
   <app-description (description)='reciverFeedback($event)'></app-description>
-
+</div>
+<div *ngIf="errorsService.wrong && errorsService.wrong.length > 0" class='errors'>
+  <h6>List of errors: </h6>
   <ul>
     <li *ngFor='let error of errorsService.wrong' [innerText]='error'></li>
   </ul>
+</div>
+
 
   <div id='content'>
     <router-outlet></router-outlet>
   </div>
-</div>
+

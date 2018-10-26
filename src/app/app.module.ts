@@ -11,6 +11,7 @@ import { DescriptionComponent } from './description/description.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorsService } from './errors.service';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [ErrorsService],
   bootstrap: [AppComponent]

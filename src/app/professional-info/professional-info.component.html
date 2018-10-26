@@ -1,12 +1,14 @@
 <div class='professional'>
   <ul>
     <li *ngFor='let language of languages; let i = index;'>
-      <input type='checkbox' [(ngModel)]='language.show'>
-      <label>{{ language.name }}</label>
+      <label>
+        <input type='checkbox' class="filled-in" [(ngModel)]='language.show'>
+        <span>{{ language.name }}</span>
+      </label>
     </li>
   </ul>
   <input type='text' [(ngModel)]='inputLanguage' placeholder='other language' value=''/>
-  <input type='button' value='Add' (click)='newLanguage()'/>
+  <a class="waves-effect waves-light btn-small" (click)='newLanguage()'>Add</a>
   <ul>
     <li *ngFor='let tongue of tongues; let i = index;'>
       <label for='tongues[i]'>{{tongues[i].name}}</label>

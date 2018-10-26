@@ -22,5 +22,4 @@ export class ErrorsService {
       this.wrong.splice(this.wrong.indexOf(error.text), 1)
     }
   }
-
 }

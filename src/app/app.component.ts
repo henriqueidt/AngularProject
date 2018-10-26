@@ -11,7 +11,6 @@ export class AppComponent {
 
   constructor(private errorsService:ErrorsService) {  }
   title = 'angularProject';
-  errors: string[] = [];
 
   ngOnInit() { }
 
