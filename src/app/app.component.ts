@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ErrorsService } from './errors.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +8,9 @@ import { ErrorsService } from './errors.service';
 export class AppComponent {
   teste: string = ''
 
-  constructor(private errorsService:ErrorsService) {  }
+  constructor() {  }
   title = 'angularProject';
 
   ngOnInit() { }
-
-  reciverFeedback(receivedResponse) {
-    this.errorsService.updateErrors(receivedResponse)
-
-  }
 
 }

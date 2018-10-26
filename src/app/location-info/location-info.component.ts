@@ -76,7 +76,6 @@ export class LocationInfoComponent implements OnInit {
     this.dataService.getLocation(this.cep)
       .then(response => {
         this.location = new Location(response)
-
         this.city = this.location.localidade;
         this.state = this.location.uf;
       })

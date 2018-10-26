@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { ErrorsService } from './errors.service';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxMaskModule} from 'ngx-mask';
+import { MenuComponent } from './menu/menu.component';
+import { UsersComponent } from './users/users.component';
+import { FormularyComponent } from './formulary/formulary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {NgxMaskModule} from 'ngx-mask';
     CpfComponent,
     LocationInfoComponent,
     ProfessionalInfoComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    MenuComponent,
+    UsersComponent,
+    FormularyComponent
   ],
   imports: [
     BrowserModule,
