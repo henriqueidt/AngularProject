@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>List of Clients</h3>
+<ul>
+  <li *ngFor='let user of users; let i = index'>
+    <ul>
+      <li>Name: {{ user.name }}</li>
+      <li>Phone: {{ user.phone }}</li>
+      <li>Email: {{ user.email }}</li>
+      <li>Birth: {{ user.birth }}</li>
+      <li>Cpf: {{ user.cpf }}</li>
+      <li>City: {{ user.city }}</li>
+      <li>State: {{ user.state }}</li>
+      <li>Cep: {{ user.cep }}</li>
+      <li>Description: {{ user.description }}</li>
+    </ul>
+    <br>
+  </li>
+</ul>
+</div>

@@ -1,17 +1,5 @@
-<div id="container">
-  <app-personal-info (teste)="reciverFeedback($event)"></app-personal-info>
-  <app-location-info></app-location-info>
-  <app-professional-info></app-professional-info>
+<app-menu></app-menu>
 
-  {{ teste }}
-
-  <input type="text" [(ngModel)]="teste" name="" id="">
-
-  <ul>
-    <li *ngFor="let error of errors" [innerText]="error"></li>
-  </ul>
-
-  <div id="content">
+  <div id='content'>
     <router-outlet></router-outlet>
   </div>
-</div>

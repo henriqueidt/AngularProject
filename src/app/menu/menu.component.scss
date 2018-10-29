@@ -1,0 +1,12 @@
+nav {
+  width: 55px;
+  height: 100%;
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      background: grey;
+    }
+  }
+}

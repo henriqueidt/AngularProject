@@ -7,17 +7,19 @@ export class ErrorsService {
 
   constructor() { }
 
-  wrong = ['im working'];
+  wrong = [];
 
   myErrors() {
     return this.wrong;
   }
 
-  addError(error) /* ta tipando o retorno do metodo - tem que retornar uma lista de strings*/ {
-    this.wrong.push(error)
-    // console.log(this.wrong)
-
-    return error
+  updateErrors(error) {
+    if (error.correct == false) {
+      if (this.wrong.indexOf(error.text) === -1) {
+        this.wrong.push(error.text)
+      }
+    } else if (this.wrong.indexOf(error.text) !== -1) {
+      this.wrong.splice(this.wrong.indexOf(error.text), 1)
+    }
   }
-
 }

@@ -1,3 +1,6 @@
-<p>
-  cpf works!
-</p>
+<div class='cpf'>
+  <div class="input-field col s6">
+    <input type='text' id='cpf' [(ngModel)]='cpf' (keyup)='validateCpf()'/>
+    <label for="cpf">Cpf</label>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ErrorsService } from '../errors.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -13,40 +14,77 @@ export class PersonalInfoComponent implements OnInit {
   email= '';
   birth= '';
 
-  @Output('teste')
-  respostaFamilia = new EventEmitter();
+  @Output('test')
+  personalResponse = new EventEmitter();
 
-  constructor() { }
+  constructor(private errorsService:ErrorsService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  reciverFeedback(receivedResponse) {
+    this.errorsService.updateErrors(receivedResponse)
   }
 
-  feedback() {
-    // console.log('Resposta para o component pai', this.respostaFamilia.emit({"nome": "Raphella", "SobreNome": "Souza"}));
-  }
-
-  validateValue(): void {
+  validateName(): void {
     const regexName = /^[a-zA-Z ]+$/;
 
-    if (!regexName.test(this.name)) {
-      this.respostaFamilia.emit("Erro no nome")
+    if ((!regexName.test(this.name) || this.name.length > 50) && this.name.length > 0) {
+      this.personalResponse.emit({
+        text: "Invalid name",
+        correct: false
+      })
+    } else {
+      this.personalResponse.emit({
+        text: "Invalid name",
+        correct: true
+      })
     }
   }
 
-  /* ngDoCheck() {
-    const regexName = /^[a-zA-Z ]+$/;
-    const regexPhone = /^([1-9]{1}[1-9]{1})\s([8-9]{1}[0-9]{3,4})[\/\-]([0-9]{4})$/;
-    const regexEmail = /^([a-z]{5,})[@]([a-z]{3,}[.])([a-z]{2,3})[.]{0,1}([a-z]{0,3})$/
-    const regexBirth =/^([0-9]{2})[\/\-]([0-9]{2})[\/\-]([0-9]{4})$/;
-    let birthLen = this.birth.length;
+  validatePhone(): void {
     let phoneLen = this.phone.length;
-    if (phoneLen == 2) {
-      this.phone += ' ';
-      this.errorsService.addError('error')
+    if (( this.phone.length > 11) && this.phone.length > 0) {
+      this.personalResponse.emit({
+        text: "Invalid phone",
+        correct: false
+      })
+    } else {
+      this.personalResponse.emit({
+        text: "Invalid phone",
+        correct: true
+      })
     }
-    if (phoneLen === 8) {
-      this.phone += '-';
-    }
-  }*/
+  }
 
+  validateEmail(): void {
+    const regexEmail = /^([a-z0-9]{5,})[@]([a-z]{3,}[.])([a-z]{2,3})[.]{0,1}([a-z]{0,3})$/
+    if ((!this.email.match(regexEmail)) && this.email.length > 0){
+      this.personalResponse.emit({
+        text: "Invalid email",
+        correct: false
+      })
+    } else {
+      this.personalResponse.emit({
+        text: "Invalid email",
+        correct: true
+      })
+    }
+  }
+
+  validateBirth(): void {
+    const regexBirth =/^([0-9]{2})([0-9]{2})([0-9]{4})$/;
+    let birthLen = this.birth.length;
+    let year = this.birth.substr(birthLen - 4);
+    if ((!regexBirth.test(this.birth) || parseInt(year) > 2000) && birthLen > 0) {
+      this.personalResponse.emit({
+        text: "Invalid birth",
+        correct: false
+      })
+    } else {
+      this.personalResponse.emit({
+        text: "Invalid birth",
+        correct: true
+      })
+    }
+  }
 }

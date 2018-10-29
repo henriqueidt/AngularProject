@@ -10,6 +10,11 @@ import { ProfessionalInfoComponent } from './professional-info/professional-info
 import { DescriptionComponent } from './description/description.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorsService } from './errors.service';
+import { HttpClientModule } from '@angular/common/http';
+import {NgxMaskModule} from 'ngx-mask';
+import { MenuComponent } from './menu/menu.component';
+import { UsersComponent } from './users/users.component';
+import { FormularyComponent } from './formulary/formulary.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +23,17 @@ import { ErrorsService } from './errors.service';
     CpfComponent,
     LocationInfoComponent,
     ProfessionalInfoComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    MenuComponent,
+    UsersComponent,
+    FormularyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [ErrorsService],
   bootstrap: [AppComponent]

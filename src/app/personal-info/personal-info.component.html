@@ -1,6 +1,19 @@
 <div class='personal'>
-  <input type='text' [(ngModel)]='name' placeholder='name' (keyup)="validateValue()"/>
-  <input type='text' [(ngModel)]='phone' placeholder='phone'/>
-  <input type='text' [(ngModel)]='email' placeholder='email'/>
-  <input type='text' [(ngModel)]='birth' placeholder='birth'/>
+  <div class="input-field col s6">
+    <input id="name" type='text' [(ngModel)]='name' (keyup)='validateName()'/>
+    <label for="name">Name</label>
+  </div>
+  <div class="input-field col s6">
+    <input id="phone" type='text' [(ngModel)]='phone' mask='00 00000-0000' (keyup)='validatePhone()'/>
+    <label for="phone">Phone</label>
+  </div>
+  <div class="input-field col s6">
+  <input id='email' type='text' [(ngModel)]='email' (keyup)='validateEmail()'/>
+  <label for="email">Email</label>
+  </div>
+  <div class="input-field col s6">
+  <input id='birth' type='text' [(ngModel)]='birth' mask='00/00/0000' (keyup)='validateBirth()'/>
+  <label for="birth">Birth</label>
+  </div>
+  <app-cpf (cpf)='reciverFeedback($event)'></app-cpf>
 </div>
